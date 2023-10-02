@@ -88,7 +88,7 @@ const ProductForm = ({item,setViewProductForm,setEditItem}) => {
                 <div className="flex-1">
                 <label htmlFor="stock" className="block text-sm font-medium text-slate-700">Stock quantity</label>
                 <div className="mt-1">
-                    <input required onChange={handleChange} value={form.stock} type="number" name="stock" id="stock" placeholder='Product price' className="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1  focus:invalid:border-slate-500 focus:invalid:ring-slate-500 disabled:shadow-none" />
+                    <input required onChange={handleChange} max={1000} value={form.stock} type="number" name="stock" id="stock" placeholder='Product price' className="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1  focus:invalid:border-slate-500 focus:invalid:ring-slate-500 disabled:shadow-none" />
                 </div>
                 </div>
                 </div>
