@@ -25,12 +25,7 @@ const cols=[
     label:"Price",
     value:"price",
     sort:false
-  },
-  {
-    label:"Image count",
-    value:"image_count",
-    sort:false
-  },
+  }
 ]
 
 const DahboardProducts = () => {
@@ -80,9 +75,6 @@ const DahboardProducts = () => {
                 </td>
                 <td className="px-6 py-4">
                     Rs. {item.price}
-                </td>
-                <td className="px-6 py-4 ">
-                    {item.images.length}
                 </td>
                 <td className="px-6 py-4 flex justify-end gap-2 text-xl">
                     <button onClick={()=>{

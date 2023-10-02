@@ -1,8 +1,9 @@
 import React from 'react'
 import {Sidebar} from "../components"
 import { Outlet } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 const Dashboard = () => {
-    const viewMenu=true
+    const {viewMenu}=useSelector(state=>state.main)
   return (
         <div className="flex relative dark:bg-main-dark-bg">
     {viewMenu?

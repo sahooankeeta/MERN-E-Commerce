@@ -44,3 +44,20 @@ module.exports.login=async(req,res)=>{
         res.status(500).json({success:false,message:e.message})
     }
 }
+module.exports.resetPassword=async(req,res)=>{
+    try{
+     const {email,password,confirm_password}=req.body
+     const existingUser=await User.findOne({email})
+     if(!existingUser)
+      return res.status(400).json({success:false,message:'User not found'})
+     if(password!==confirm_password)
+       return res.status(400).json({success:false,message:"Passwords do not match"})
+    const hashedPassword = await bcrypt.hash(password, 12);
+    const result = await User.create({ name,email,userType, password: hashedPassword,company });
+    const token = jwt.sign( { email: result.email, id: result._id }, jwt_secret, { expiresIn: "7d" } );
+    res.status(201).json({success:true,data:{ user:result, token },message:'Password updated successfully'});
+    }catch(e){
+        console.log(e)
+        res.status(500).json({success:false,message:e.message})
+    }
+}

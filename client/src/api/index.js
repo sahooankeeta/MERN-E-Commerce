@@ -21,6 +21,7 @@ API.interceptors.response.use(
   );
 export const signIn = (formData) => API.post('/users/login', formData);
 export const signUp = (formData) => API.post('/users/signup', formData);
+export const resetPassword = (formData) => API.post('/users/reset-password', formData);
 export const getProducts=({page,limit,filterQuery})=>API.get(`/products?page=${page}&limit=${limit}&${filterQuery}`);
 export const getProduct=(id)=>API.get(`/products/${id}`)
 export const addProduct=(formData) => API.post('/products', formData)

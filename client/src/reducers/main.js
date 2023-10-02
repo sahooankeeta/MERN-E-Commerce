@@ -1,6 +1,16 @@
 import * as actionType from "../helpers/constants"
-const mainReducer = (state ={loading:false,error:null}, action) => {
+const initialState={
+  viewMenu:true,
+    screenSize:null,
+    loading:false,
+    error:null
+}
+const mainReducer = (state =initialState, action) => {
     switch (action.type) {
+      case actionType.SET_VIEW_MENU:
+            return {...state,viewMenu:action.payload}
+      case actionType.SET_SCREEN_SIZE:
+            return {...state,screenSize:action.payload}
         case actionType.SET_LOADING:
           return {...state,loading:action.payload}
         case actionType.SET_ERROR:

@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import { Navbar,Sidebar } from '../components'
+import { Header,Sidebar } from '../components'
 import { Routes,Route, Outlet } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import {getCart} from "../actions/cart"
@@ -12,7 +12,7 @@ const Home = () => {
     },[])
   return (
     <div>
-        <Navbar cartCount={cart?.items?.length}/>
+        <Header cartCount={cart?.items?.length}/>
       <div className={`relative bg-main-bg min-h-screen w-full`}>
         <Outlet/>
     </div>

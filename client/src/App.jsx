@@ -1,13 +1,29 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import {BrowserRouter,Routes,Route,Navigate} from 'react-router-dom'
 import './App.css'
 import {Auth,Home,Landing, ProductDetail,Products,Cart,Checkout,Dashboard, DashboardProducts, DashboardOrders,Orders,OrderDetails} from "./pages"
 
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import {setScreenSize,setViewMenu} from "./actions/main"
 const App=()=>{
   const {authData:user}=useSelector(state=>state.auth)
+  const {screenSize}=useSelector(state=>state.main)
+  const dispatch=useDispatch()
+  useEffect(()=>{
+    const handleResize=()=>dispatch(setScreenSize(window.innerWidth))
+    window.addEventListener("resize",handleResize)
+    handleResize()
+    return ()=>window.removeEventListener("resize",handleResize)
+  },[])
+  useEffect(()=>{
+    if(screenSize<=900){
+      dispatch(setViewMenu(false))
+    }else{
+      dispatch(setViewMenu(true))
+    }
+  },[screenSize])
   return (
     <BrowserRouter >
     <ToastContainer />

@@ -18,7 +18,7 @@ const ProductBar = ({item,editable,dispatch}) => {
     handleUpdate({cartItemId:item._id,quantity:item.quantity-1})
   }
   return (
-    <div className='p-4 flex h-[200px] gap-4 border border-gray-300 rounded-md mb-4'>
+    <div className='p-4 flex h-[150px] md:h-[200px] gap-4 border border-gray-300 rounded-md mb-4'>
     <div className='w-[150px] h-full'><img className='w-full h-full' src={editable?item?.product?.images[0]?.imgUrl:item.product_image} alt="" /></div>
     <div className="flex flex-col justify-around">
         <div className='flex flex-col gap-1'>

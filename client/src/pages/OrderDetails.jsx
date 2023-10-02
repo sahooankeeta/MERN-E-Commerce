@@ -19,7 +19,7 @@ const OrderDetails = () => {
     return <Loader/>
     if(order)
   return (
-    <div className='w-3/4 mx-auto flex flex-col gap-2 mt-4'>
+    <div className='w-full px-6 md:px-2 md:w-3/4 mx-auto flex flex-col gap-2 mt-4'>
         <div className='flex justify-between'>
         <div className='text-2xl capitalize font-bold '>order details</div>
         <button onClick={()=>navigate(-1)} className="bg-slate-800 rounded-lg py-2 px-4 capitalize  text-white">back</button>

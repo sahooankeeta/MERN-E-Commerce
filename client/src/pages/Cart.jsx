@@ -16,7 +16,7 @@ const Cart = () => {
   return <Loader/>
   
   return (
-    <div className='flex gap-10 w-3/4 mx-auto mt-10'>
+    <div className='flex gap-10 w-full px-6 md:px-2 md:w-3/4 mx-auto mt-10'>
       {(!cart?.items || cart?.items?.length==0) ? <Empty/>:<>
         <div className="flex-1 flex flex-col gap-3">
           

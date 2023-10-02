@@ -12,11 +12,11 @@ const RangeFilter = ({title,handleAddFilter}) => {
     
   }
   return (
-   <div className="my-6">
+   <div className="my-6 mr-3">
     <div className='mb-2 capitalize'>{title}</div>
     <ReactSlider
     className="h-[5px] px-1 rounded-lg bg-gray-200"
-    thumbClassName="w-[22px] h-[22px] top-1/2 -translate-y-1/2 outline-none bg-cyan-600 cursor-grab flex items-center justify-center rounded-full text-white text-xs"
+    thumbClassName="px-2 h-[22px] top-1/2 -translate-y-1/2 outline-none bg-cyan-600 cursor-grab flex items-center justify-center rounded-full text-white text-xs"
     trackClassName={`h-[5px] rounded-lg slider-track`}
     value={defaultValue}
     ariaLabel={['Lower thumb', 'Upper thumb']}

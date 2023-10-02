@@ -1,3 +1,5 @@
+export const SET_SCREEN_SIZE="SET_SCREEN_SIZE"
+export const SET_VIEW_MENU="SET_VIEW_MENU"
 export const SET_LOADING="SET_LOADING"
 export const PRODUCT_LOADING="PRODUCT_LOADING"
 export const SET_ERROR="SET_ERROR"

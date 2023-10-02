@@ -50,7 +50,7 @@ const ProductForm = ({item,setViewProductForm,setEditItem}) => {
         setForm({...form,imageUrls:form.imageUrls.filter(i=>i.imgId!=id)})
       }
   return (
-    <div id="defaultModal" className="fixed top-0 left-0 right-0 z-50  w-full  overflow-x-hidden overflow-y-auto md:inset-0  max-h-full">
+    <div id="defaultModal" className="fixed top-0 left-0 right-0 z-50  w-full  md:inset-0  h-full">
     <div className='absolute w-full h-full bg-slate-800  opacity-50'>
     
     </div>
@@ -92,11 +92,12 @@ const ProductForm = ({item,setViewProductForm,setEditItem}) => {
                 </div>
                 </div>
                 </div>
+                <div className="capitalize">images</div>
                 <div className="mt-2 flex flex-wrap gap-2">
                     <input ref={imageInput} onChange={addImages} type="file" accept='image/*' multiple className='hidden'/>
                     <div
                     onClick={()=>imageInput.current.click()}
-                    className="w-10 h-10 bg-slate-200 cursor-pointer"></div>
+                    className="w-10 h-10 bg-slate-200 cursor-pointer flex justify-center items-center">+</div>
                     {images.map((image,index)=>
                         <div key={`img-${index}`} className="w-10 h-10 bg-slate-200 cursor-pointer relative">
                             <button onClick={()=>deleteImage(index,'file')} className="absolute -top-2 -right-2 text-red-600">

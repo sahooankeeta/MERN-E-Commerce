@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {AiFillEye,AiFillEyeInvisible} from "react-icons/ai"
-import {login,signup} from "../actions/auth"
+import {login,signup,resetPassword} from "../actions/auth"
 import { useDispatch, useSelector } from 'react-redux'
 const AuthForm = () => {
   const dispatch=useDispatch()
@@ -28,13 +28,13 @@ const AuthForm = () => {
       {dispatch(login(form))
      
       }
-    // if(authType==='forgot')
-    //  dispatch(handleResetPassword(form.email))
+    if(authType==='forgot')
+     dispatch(resetPassword(form))
   }
   return (
     <div className='w-[450px] p-4 rounded-lg bg-slate-900'>
     <form onSubmit={handleSubmit}>
-    <h2 className="text-white font-bold text-center text-4xl">{authType=='login' && "Login to "}{authType=='signup' && 'Sign Up on '}<span className='purple_gradient text-center'>Vibe</span></h2>
+    <h2 className="text-white font-bold text-center text-4xl">{authType=='login' && "Login to "}{authType=='signup' && 'Sign Up on '}<span className='purple_gradient text-center'>Aerospace</span></h2>
     <div className="flex gap-2 justify-center text-white px-5 py-2.5 text-sm leading-5  font-semibold cursor-pointer" onClick={()=>setAuthType(authType==='login'?'signup':'login')}>
     <span>{authType==='login' ?"Don't have an account yet ?":"Already have an account ?"}</span>
     <span className=' text-sky-500 hover:text-sky-300'>{authType=='login'? 'Sign up':'Sign In'} </span>
@@ -71,15 +71,15 @@ const AuthForm = () => {
 </div>
 </>
 }
-  {authType!=='forgot' &&
+ 
   <div className="mt-4">
   <label htmlFor="password" className="block text-sm font-medium text-gray-400">Password</label>
   <div className="mt-1 relative">
     <input required onChange={handleChange} value={form.password} type={showPassword=='password'?'text':'password'} minLength={6} name="password" id="password" placeholder="Password" className="px-3 py-2 pr-6 placeholder-slate-400 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 disabled:shadow-none"/>
     <div className='absolute right-1 top-[50%] translate-y-[-50%]' onClick={()=>setSetPassword(prev=>(prev!=='password')?'password':null)}>{showPassword=='password'?<AiFillEye fill="#0f172a"/>:<AiFillEyeInvisible fill="#0f172a"/>}</div>
   </div>
-</div>}
-{authType==='signup' &&
+</div>
+{authType!=='login' &&
 <div className="mt-4">
   <label htmlFor="confirm_password" className="block text-sm font-medium text-gray-400">Confirm Password</label>
   <div className="mt-1 relative">
@@ -98,7 +98,7 @@ authType==='login' &&
 </div>
 }
 <button type='submit' disabled={loading} className="mt-4 bg-sky-500 hover:bg-sky-700 disabled:bg-slate-600 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white w-full">
-    {authType==='login'?'Login':authType==='signup'?'Sign Up':'Send reset email'} 
+    {authType==='login'?'Login':authType==='signup'?'Sign Up':'Save'} 
   </button>
   </form>
   

@@ -34,7 +34,7 @@ const Orders = () => {
    if(loading)
     <Loader/>
   return (
-    <div className=' w-3/4 mx-auto mt-10'>
+    <div className='w-full px-6 md:px-2 md:w-3/4 mx-auto mt-10'>
         <div className='text-2xl capitalize font-bold '>orders</div>
         {loading?<Loader/>:(
           (allOrders?.length>0) ?<table className=" mt-2 w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -53,7 +53,9 @@ const Orders = () => {
           </thead>
           <tbody>
           {allOrders.map((item,index)=>
-              <tr onClick={()=>navigate(`/orders/${item._id}`)} key={`item-${index}`} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <tr
+               onClick={()=>navigate(`/orders/${item._id}`)} key={`item-${index}`} 
+               className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cursor-pointer hover:bg-slate-100">
                   <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     <Moment format="DD/MM/YYYY , HH:MM:SS">{item.createdAt.toString()}</Moment>
                   </th>
