@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.auth-bg{
+    background-image: url('./assets/background.jpg');
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+}
+.slider-track-1{
+    background-color: #0891b2;
+}
