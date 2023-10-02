@@ -14,7 +14,7 @@ export const login = (formData) => async (dispatch) => {
         notify("error",message)
     }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       notify("error",error.message)
     }
     dispatch({type:actionType.SET_LOADING,payload:false})
@@ -34,7 +34,7 @@ export const login = (formData) => async (dispatch) => {
       
   
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       notify("error",error.message)
     }
     dispatch({type:actionType.SET_LOADING,payload:false})
@@ -53,7 +53,7 @@ export const login = (formData) => async (dispatch) => {
       
   
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       notify("error",error.message)
     }
     dispatch({type:actionType.SET_LOADING,payload:false})

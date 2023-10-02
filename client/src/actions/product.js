@@ -17,7 +17,7 @@ export const getProducts=({page=1,limit=10,filter={}})=>async (dispatch)=>{
         dispatch({type:actionType.SET_PAGES,payload:totalPages})
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       notify("error",error.message)
     }
     dispatch({type:actionType.SET_LOADING,payload:false})
@@ -32,7 +32,7 @@ export const getProduct=(id)=>async (dispatch)=>{
     }else
     notify("error",message)
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     notify("error",error.message)
   }
   dispatch({type:actionType.SET_LOADING,payload:false})
@@ -46,7 +46,7 @@ export const addProduct=(formData)=>async (dispatch)=>{
        dispatch({type:actionType.ADD_PRODUCT,payload:data})
        notify(success?'success':'error',message)
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       notify("error",error.message)
     }
     dispatch({type:actionType.SET_LOADING,payload:false})
@@ -59,7 +59,7 @@ export const editProduct=(formData,id)=>async (dispatch)=>{
         dispatch({type:actionType.EDIT_PRODUCT,payload:data})
       notify(success?'success':'error',message)
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       notify("error",error.message)
     }
     dispatch({type:actionType.SET_LOADING,payload:false})
@@ -73,7 +73,7 @@ export const deleteProduct=(id)=>async (dispatch)=>{
         dispatch({type:actionType.DELETE_PRODUCT,payload:id})
       notify(success?'success':'error',message)
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       notify("error",error.message)
     }
     dispatch({type:actionType.SET_LOADING,payload:false})

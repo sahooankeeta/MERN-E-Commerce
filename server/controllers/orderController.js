@@ -18,9 +18,9 @@ module.exports.order= async (req, res) => {
         };
        
         const order = await instance.orders.create(options);
-        console.log("sfter",order)
+        
         if (!order) return res.status(500).json({success:false,message:"Some error occured"});
-        console.log(order)
+        
         res.status(200).json({success:true,message:"order created successfully",data:order});
     } catch (error) {
         console.log(error)
@@ -95,13 +95,13 @@ module.exports.getAllOrders=async(req,res)=>{
         let orders=[]
         if(user.userType=='buyer')
       orders=await Order.find({user:req.userId}).sort("-createdAt")
-       else if(user.userType=='seller')
+       else if(user.userType=='seller' && orders?.length>0)
        {
-        for(let i=0;i<user.productOrders.length;i++)
+        for(let i=0;i<user.productOrders?.length;i++)
        {
-        console.log("product order",user.productOrders[i])
         let porder=await Order.findById(user.productOrders[i])
            let company_bill=0,itemCount=0;
+           if(porder?.items?.length>0)
            porder.items=porder.items.filter(item=>{
             if(item.company_name==user.company)
             {

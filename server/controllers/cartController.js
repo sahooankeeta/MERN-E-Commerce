@@ -111,7 +111,7 @@ module.exports.updateCartQuantity=async(req,res)=>{
             let prevTotal=cartItem.quantity*cartItem.product.price
             let newTotal=quantity*cartItem.product.price
             userCart.bill+=-prevTotal+newTotal
-            console.log(userCart.items)
+            //console.log(userCart.items)
             if(quantity==0)
             {
                userCart.items=userCart.items.filter(i=>i._id==cartItemId)

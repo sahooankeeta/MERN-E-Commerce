@@ -5,7 +5,7 @@ const fs = require("fs")
 module.exports.allProducts=async (req,res)=>{
     try{
         const {page=1,limit=10,price=""}=req.query
-        console.log("in")
+        
         let priceRange=price.split(",")
         
         if(priceRange.length==2)
@@ -32,7 +32,7 @@ module.exports.allProducts=async (req,res)=>{
 module.exports.getProduct=async(req,res)=>{
     try{
         const product = await Product.findById(req.params.id).populate("user","company")
-        console.log(product)
+        
         res.status(200).json({success:true,data:product})
     }catch(e){
         console.log(e)
