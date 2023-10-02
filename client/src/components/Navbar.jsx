@@ -28,7 +28,7 @@ const Navbar = ({handleCloseSidebar}) => {
                 className={({isActive})=>`flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md m-2 ${isActive?`text-white bg-cyan-600`:`text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray`}`}
                 >
                  {item.icon}
-                 <span className="captilalize">{item.name}</span>
+                 <span className="capitalize">{item.name}</span>
                 </NavLink>
                 </div>)}
             

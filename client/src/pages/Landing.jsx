@@ -100,11 +100,11 @@ const Landing = () => {
        }
       }
       >
-         {carouselImages.map(item=><div className='h-[85vh]'><img className='h-full w-full object-cover' src={item} alt=""/></div>)}
+         {carouselImages.map((item,index)=><div key={`car-${index}`} className='h-[85vh]'><img className='h-full w-full object-cover' src={item} alt=""/></div>)}
       </Carousel>
       <div className="flex flex-col gap-16 md:gap-[100px] my-16">
       {tiles.map((item,index)=>
-      <div className={`flex flex-col md:flex-row  items-center ${index%2==0 && 'md:flex-row-reverse'} gap-2 md:gap-16 px-10 md:px-0 w-full md:w-2/3 mx-auto`}>
+      <div key={`tile-${index}`} className={`flex flex-col md:flex-row  items-center ${index%2==0 && 'md:flex-row-reverse'} gap-2 md:gap-16 px-10 md:px-0 w-full md:w-2/3 mx-auto`}>
         <div className='h-[300px] w-full md:w-1/3 '><img className='h-full w-full rounded-lg object-cover' src={item.img} alt=""/></div>
         
         <div className='flex flex-col gap-3 flex-1'>
@@ -133,16 +133,16 @@ const Landing = () => {
         }
        }>
         {testimonials.map((item,index)=>
-      <figure class="flex flex-col mx-4 my-10 justify-center items-center p-8 text-center bg-gray-100 rounded-lg border-b border-gray-200 md:p-12 lg:border-r dark:bg-gray-800 dark:border-gray-700">
-      <blockquote class="mx-auto mb-8 text-gray-500 dark:text-gray-400">
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">{item.title}</h3>
-          {item.content.split("<br/>").map(i=><p className='my-4'>{i}</p>)}
+      <figure key={`testimonial-${index}`} className="flex flex-col mx-4 my-10 justify-center items-center p-8 text-center bg-gray-100 rounded-lg border-b border-gray-200 md:p-12 lg:border-r dark:bg-gray-800 dark:border-gray-700">
+      <blockquote className="mx-auto mb-8 text-gray-500 dark:text-gray-400">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{item.title}</h3>
+          {item.content.split("<br/>").map((i,id)=><p key={`p-${id}`} className='my-4'>{i}</p>)}
       </blockquote>
-      <figcaption class="flex justify-center items-center space-x-3">
-          <img class="w-14 h-14 object-cover rounded-full" src={item.img} alt="profile picture"/>
-          <div class="space-y-0.5 font-medium dark:text-white text-left">
+      <figcaption className="flex justify-center items-center space-x-3">
+          <img className="w-14 h-14 object-cover rounded-full" src={item.img} alt="profile picture"/>
+          <div className="space-y-0.5 font-medium dark:text-white text-left">
               <div>{item.name}</div>
-              <div class="text-sm font-light text-gray-500 dark:text-gray-400">{item.position}</div>
+              <div className="text-sm font-light text-gray-500 dark:text-gray-400">{item.position}</div>
           </div>
       </figcaption>    
   </figure> 

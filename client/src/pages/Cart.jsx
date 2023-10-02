@@ -8,8 +8,9 @@ const Cart = () => {
   const dispatch=useDispatch()
   const {loading}=useSelector(state=>state.main)
   const {cart} =useSelector(state=>state.cart)
- 
+  const {authData:user}=useSelector(state=>state.auth)
   useEffect(()=>{
+    if(user?.userType=='buyer')
     dispatch(getCart())
   },[dispatch])
   if(loading)

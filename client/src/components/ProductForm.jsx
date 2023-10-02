@@ -73,7 +73,7 @@ const ProductForm = ({item,setViewProductForm,setEditItem}) => {
                 </div>
                 </div>
                 <div className="mt-2">
-                <label htmlFor="description" className="block text-sm font-medium text-slate-700">Product name</label>
+                <label htmlFor="description" className="block text-sm font-medium text-slate-700">Product description</label>
                 <div className="mt-1">
                     <textarea rows={5} required onChange={handleChange} value={form.description} type="text" name="description" id="description" placeholder='Product description' className="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1  focus:invalid:border-slate-500 focus:invalid:ring-slate-500 disabled:shadow-none" />
                 </div>

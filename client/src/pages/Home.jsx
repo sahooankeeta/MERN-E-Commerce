@@ -6,8 +6,9 @@ import {getCart} from "../actions/cart"
 const Home = () => {
   const dispatch=useDispatch()
    const {cart}=useSelector(state=>state.cart) 
+   const {authData:user}=useSelector(state=>state.auth)
     useEffect(()=>{
-      console.log("home")
+      if(user?.userType=='buyer')
       dispatch(getCart())
     },[])
   return (

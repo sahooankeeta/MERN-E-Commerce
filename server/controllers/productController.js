@@ -5,6 +5,7 @@ const fs = require("fs")
 module.exports.allProducts=async (req,res)=>{
     try{
         const {page=1,limit=10,price=""}=req.query
+        console.log("in")
         let priceRange=price.split(",")
         
         if(priceRange.length==2)
