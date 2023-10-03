@@ -2,7 +2,7 @@ import * as API from "../api"
 import * as actionType from "../helpers/constants"
 import notify from "../helpers/notify";
 
-export const getProducts=({page=1,limit=10,filter={}})=>async (dispatch)=>{
+export const getProducts=({page=1,limit=12,filter={}})=>async (dispatch)=>{
   dispatch({type:actionType.PRODUCT_LOADING})
     try {
       let filterQuery=""

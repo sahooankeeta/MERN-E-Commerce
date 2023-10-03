@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import ProductCard from './ProductCard'
 import Empty from './Empty'
 import Pagination from './Pagination'
+import Loader from './Loader'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../actions/product'
 const ProductList = () => {
@@ -12,6 +13,8 @@ const ProductList = () => {
   useEffect(()=>{
     dispatch(getProducts({page,filter}))
    },[dispatch,page])
+   if(loading)
+    return <Loader/>
    if(!loading && allProducts)
   return (
    <div>

@@ -1,8 +1,8 @@
 import React,{useEffect,useState} from 'react'
-
 import { Carousel } from 'react-responsive-carousel';
 import { useParams } from 'react-router-dom';
 import {useDispatch,useSelector} from 'react-redux'
+import {Loader} from "../components"
 import { getProduct } from '../actions/product';
 import { addToCart,removeFromCart } from '../actions/cart';
 const ProductDetail = () => {
@@ -20,7 +20,8 @@ const ProductDetail = () => {
   },[dispatch,id,cart])
   //const {loading}=useSelector(state=>state.main)
   const {product,loading}=useSelector(state=>state.product)
-  
+  if(loading)
+   return <Loader/>
   if(product && !loading)
   return (
     <div className='flex gap-10 px-10 mt-4 w-4/5 mx-auto'>
@@ -34,10 +35,11 @@ const ProductDetail = () => {
        </Carousel>
       </div>
       <div className='flex-1'>
-         <h2>{product?.user?.company}</h2>
-         <div>{product?.name}</div>
-         <hr/>
-         <h3>{product?.price}</h3>
+         <h2 className='font-semibold text-lg'>{product?.user?.company}</h2>
+         <div className='font-bold text-2xl'>{product?.name}</div>
+         <hr className='my-4'/>
+         <h3 className='font-medium text-gray-800 text-lg'>Rs. {product?.price}</h3>
+         <div className="font-bold my-3">Description</div>
          <div>{product?.description}</div>
          <div className="flex gap-2 mt-4">
           {inCart ?<button onClick={()=>dispatch(removeFromCart(inCart._id))} className="rounded-lg text-white bg-red-600 p-2 min-w-[150px] capitalize">remove from bag</button>:

@@ -17,7 +17,7 @@ const ProductCard = ({item}) => {
     <p className=" font-normal text-gray-700 dark:text-gray-400 truncate">{item.user.company}</p>
         <h5 className=" text-2xl font-bold tracking-tight text-gray-900 dark:text-white truncate">{item.name}</h5>
         
-        <p className=" font-normal text-gray-700 dark:text-gray-400">{item.price}</p>
+        <p className=" font-medium text-gray-700 dark:text-gray-400">Rs. {item.price}</p>
         
     </div>
         </Link>
