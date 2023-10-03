@@ -8,14 +8,14 @@ module.exports.allProducts=async (req,res)=>{
         const {page=1,limit=10,price=""}=req.query
         
         let priceRange=price.split(",")
-        
+        let whereClause=[]
         if(priceRange.length==2)
           whereClause.push({ "price":{$gte:priceRange[0],$lte:priceRange[1]}})
         const user=await User.findById(req.userId)
         let allProducts=[],total=0
         if(user?.userType=='buyer')
      {
-        let whereClause=[{stock:{$gt:0}}]
+        whereClause.push({stock:{$gt:0}})
         total=await Product.find({$and:whereClause}).count()
         allProducts = await Product.find({$and:whereClause}).populate("user","company").sort("-createdAt").limit(limit).skip(limit*(page-1))
      }
