@@ -18,7 +18,7 @@ const Sidebar = () => {
   <button type='button' className="absolute right-5 top-3 text-xl rounded-full p-3 hover:bg-light-gray text-slate-500 hover:text-slate-800  block md:hidden" onClick={handleCloseSidebar}>
             <MdOutlineCancel/>
         </button>
-        {user.userType==='buyer'?<Filter/>:<Navbar handleCloseSidebar={handleCloseSidebar}/>}
+        {user?.userType==='buyer'?<Filter/>:<Navbar handleCloseSidebar={handleCloseSidebar}/>}
   
     </div>}
       </div>

@@ -13,13 +13,13 @@ module.exports.allProducts=async (req,res)=>{
           whereClause.push({ "price":{$gte:priceRange[0],$lte:priceRange[1]}})
         const user=await User.findById(req.userId)
         let allProducts=[],total=0
-        if(user.userType=='buyer')
+        if(user?.userType=='buyer')
      {
         let whereClause=[{stock:{$gt:0}}]
         total=await Product.find({$and:whereClause}).count()
         allProducts = await Product.find({$and:whereClause}).populate("user","company").sort("-createdAt").limit(limit).skip(limit*(page-1))
      }
-    else if(user.userType=='seller')
+    else if(user?.userType=='seller')
     {
         total=await Product.find({user:user._id}).count()
         allProducts = await Product.find({user:user._id}).populate("user","company").sort("-createdAt").limit(limit).skip(limit*(page-1))

@@ -48,7 +48,7 @@ const Header = ({cartCount}) => {
         </div>
         
         <div className="flex gap-5 items-center">
-            {user.userType=='buyer'?<Link to="/products">Products</Link>:<Link to="/dashboard">Dashboard</Link>}
+            {user?.userType=='buyer'?<Link to="/products">Products</Link>:<Link to="/dashboard">Dashboard</Link>}
             
 {/* <form className='w-[300px]'>
     <div className="flex">
@@ -64,7 +64,7 @@ const Header = ({cartCount}) => {
         </div>
     </div>
 </form> */}
-         {user.userType=='buyer' && 
+         {user?.userType=='buyer' && 
          <Link to="/cart" className='relative'>
          {cartCount>0 && <div className="-top-4 absolute left-3">
  <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">{cartCount}</p>

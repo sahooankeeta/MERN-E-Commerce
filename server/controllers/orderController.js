@@ -93,9 +93,9 @@ module.exports.getAllOrders=async(req,res)=>{
     try{
         const user=await User.findById(req.userId)
         let orders=[]
-        if(user.userType=='buyer')
+        if(user?.userType=='buyer')
       orders=await Order.find({user:req.userId}).sort("-createdAt")
-       else if(user.userType=='seller' && orders?.length>0)
+       else if(user?.userType=='seller' && orders?.length>0)
        {
         for(let i=0;i<user.productOrders?.length;i++)
        {
@@ -130,7 +130,7 @@ module.exports.getOrder=async(req,res)=>{
         if(id){
 
             let order =await Order.findById(id)
-            if(user.userType ==='seller'){
+            if(user?.userType ==='seller'){
                 let company_bill=0
                 order.items=order.items.filter(item=>{
                     if(item.company_name==user.company)
