@@ -47,9 +47,9 @@ module.exports.addProduct =async (req,res)=>{
      let urls = [];
      if(req.files)
     for (const file of req.files) {
-      let response = await cloudinary.uploader.upload(path.join(__dirname,file.path));
+      let response = await cloudinary.uploader.upload(file.path);
       urls.push({ imgId: response.public_id, imgUrl: response.secure_url });
-      fs.unlinkSync(path.join(__dirname,file.path));
+      fs.unlinkSync(file.path);
     }
      const newProduct=await Product.create({
         name,
