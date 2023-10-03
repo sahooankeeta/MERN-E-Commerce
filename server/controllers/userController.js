@@ -53,7 +53,7 @@ module.exports.resetPassword=async(req,res)=>{
      if(password!==confirm_password)
        return res.status(400).json({success:false,message:"Passwords do not match"})
     const hashedPassword = await bcrypt.hash(password, 12);
-    const result = await User.create({ name,email,userType, password: hashedPassword,company });
+    const result = await User.findByIdAndUpdate(existingUser._id,{ password: hashedPassword });
     const token = jwt.sign( { email: result.email, id: result._id }, jwt_secret, { expiresIn: "7d" } );
     res.status(201).json({success:true,data:{ user:result, token },message:'Password updated successfully'});
     }catch(e){
