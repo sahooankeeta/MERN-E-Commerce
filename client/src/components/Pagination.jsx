@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate';
-const Pagination = ({pageCount,currentPage,setPage}) => {
-    
+import { useNavigate } from 'react-router-dom';
+const Pagination = ({pageCount,currentPage}) => {
+    const navigate=useNavigate()
     const handlePageChange=(e)=>{
-        setPage(e.selected+1)
+        //setPage(e.selected+1)
+       navigate(`/products?page=${e.selected+1}`)
     }
   return (
     <ReactPaginate

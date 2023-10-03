@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import { Carousel } from 'react-responsive-carousel';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import {useDispatch,useSelector} from 'react-redux'
 import {Loader} from "../components"
 import { getProduct } from '../actions/product';
@@ -8,6 +8,7 @@ import { addToCart,removeFromCart } from '../actions/cart';
 const ProductDetail = () => {
   const {id}=useParams()
   const dispatch=useDispatch()
+  const navigate=useNavigate()
   const [inCart,setInCart]=useState()
   const {cart}=useSelector(state=>state.cart)
   useEffect(()=>{
@@ -24,7 +25,9 @@ const ProductDetail = () => {
    return <Loader/>
   if(product && !loading)
   return (
-    <div className='flex gap-10 px-10 mt-4 w-4/5 mx-auto'>
+<div>
+<button onClick={()=>navigate(-1)} className="my-4 mx-8 bg-slate-800 rounded-lg py-2 px-4 capitalize  text-white">back</button>
+<div className='flex gap-10 px-10 mt-4 w-4/5 mx-auto'>
       <div className='w-[400px] rounded-lg'>
        <Carousel
        >
@@ -47,6 +50,8 @@ const ProductDetail = () => {
          </div>
       </div>
     </div>
+</div>
+    
   )
 }
 
