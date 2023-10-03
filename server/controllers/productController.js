@@ -1,6 +1,7 @@
 const User=require("../models/user")
 const Product=require("../models/product")
 const cloudinary=require("../utils/cloudinary")
+const path=require('path')
 const fs = require("fs")
 module.exports.allProducts=async (req,res)=>{
     try{
@@ -46,9 +47,9 @@ module.exports.addProduct =async (req,res)=>{
      let urls = [];
      if(req.files)
     for (const file of req.files) {
-      let response = await cloudinary.uploader.upload(file.path);
+      let response = await cloudinary.uploader.upload(path.join(__dirname,file.path));
       urls.push({ imgId: response.public_id, imgUrl: response.secure_url });
-      fs.unlinkSync(file.path);
+      fs.unlinkSync(path.join(__dirname,file.path));
     }
      const newProduct=await Product.create({
         name,
