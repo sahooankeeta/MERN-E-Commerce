@@ -16,7 +16,10 @@ mongoose.connect(DB).then((con) => {
 .catch(err => console.log(err.message));
 
 app.use(express.json())
-app.use(cors());
+app.use(cors({
+  origin: "*",
+  credentials: true,
+}));
 
 app.use("/", require("./routes"));
 app.all("*",(req, res) => {

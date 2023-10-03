@@ -42,7 +42,7 @@ module.exports.getProduct=async(req,res)=>{
 module.exports.addProduct =async (req,res)=>{
     try{
      const {name,price,description,stock}=req.body
-     console.log("add",req.files,req.body)
+     //console.log("add",req.files,req.body)
      let urls = [];
      if(req.files)
     for (const file of req.files) {
